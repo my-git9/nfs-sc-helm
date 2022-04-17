@@ -1,0 +1,12 @@
+sc:
+  image:
+    registry: harbor.dsp.dc
+  nfs:
+    server: 10.29.0.149
+    path: /nfs_ssd/vmware_10.29.121.25
+    provisioner: dsp.dc/ifs
+  name: managed-nfs-storage
+  ns: nfs-provisioner
+
+
+
