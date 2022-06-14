@@ -4,6 +4,7 @@ kind: Deployment
 metadata:
   generation: 5
   name: nfs-client-provisioner
+  namespace: {{ .Values.sc.ns }}
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
