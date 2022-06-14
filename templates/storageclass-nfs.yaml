@@ -27,7 +27,7 @@ spec:
           value: {{ .Values.sc.nfs.server }}
         - name: NFS_PATH
           value: {{ .Values.sc.nfs.path }}
-        image: {{ .Values.sc.image.registry }}/nfsprovisioner/nfs-client-provisioner:202001151233
+        image: {{ .Values.sc.image }}
         imagePullPolicy: IfNotPresent
         name: nfs-client-provisioner
         terminationMessagePath: /dev/termination-log
