@@ -5,7 +5,6 @@ sc:
     path: /nfs_ssd/vmware_10.29.121.25
     provisioner: dsp.dc/ifs
   name: managed-nfs-storage
-  ns: nfs-provisioner
 
 
 
