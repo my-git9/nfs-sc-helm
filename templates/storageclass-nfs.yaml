@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   generation: 5
   name: nfs-client-provisioner
-  namespace: {{ .Values.sc.ns }}
+  namespace: {{ .Release.Namespace }}
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
@@ -54,7 +54,7 @@ kind: ServiceAccount
 metadata:
   name: nfs-client-provisioner
   # replace with namespace where provisioner is deployed
-  namespace: {{ .Values.sc.ns }}
+  namespace: {{ .Release.Namespace }}
 ---
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
@@ -82,7 +82,7 @@ subjects:
   - kind: ServiceAccount
     name: nfs-client-provisioner
     # replace with namespace where provisioner is deployed
-    namespace: {{ .Values.sc.ns }}
+    namespace: {{ .Release.Namespace }}
 roleRef:
   kind: ClusterRole
   name: nfs-client-provisioner-runner
@@ -93,7 +93,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: leader-locking-nfs-client-provisioner
     # replace with namespace where provisioner is deployed
-  namespace: {{ .Values.sc.ns }}
+  namespace: {{ .Release.Namespace }}
 rules:
   - apiGroups: [""]
     resources: ["endpoints"]
@@ -107,7 +107,7 @@ subjects:
   - kind: ServiceAccount
     name: nfs-client-provisioner
     # replace with namespace where provisioner is deployed
-    namespace: {{ .Values.sc.ns }}
+    namespace: {{ .Release.Namespace }}
 roleRef:
   kind: Role
   name: leader-locking-nfs-client-provisioner
@@ -118,7 +118,7 @@ kind: StorageClass
 metadata:
   annotations:
     storageclass.kubernetes.io/is-default-class: "true"
-  name: {{ .Values.sc.name }}
+  name: {{ .Release.Namespace }}
 parameters:
   archiveOnDelete: "false"
 provisioner: {{ .Values.sc.nfs.provisioner }}
