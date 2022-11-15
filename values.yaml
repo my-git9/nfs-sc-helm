@@ -1,5 +1,5 @@
 sc:
-  image: harbor.dsp.dc/nfsprovisioner/nfs-client-provisioner:202001151233
+  image: harbor.ats.io/dsp-system/nfs-client-provisioner:202001151233
   nfs:
     server: 10.29.0.149
     path: /nfs_ssd/vmware_10.29.121.25
