@@ -1,5 +1,5 @@
 sc:
-  image: harbor.ats.io/dsp-system/nfs-client-provisioner:202001151233
+  image: registry.cn-beijing.aliyuncs.com/kubesphereio/nfs-subdir-external-provisioner:v4.0.2
   nfs:
     server: 10.29.0.149
     path: /nfs_ssd/vmware_10.29.121.25
